@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useState, useRef, useEffect, useCallback, createContext, useContext, ReactNode, Children, useMemo } from 'react'
@@ -191,7 +190,6 @@ interface TrailItem {
   y: number
   rotation: number
   animationSequence: TrailAnimationSequence
-  scale: number
   child: React.ReactNode
 }
 
@@ -201,8 +199,8 @@ const ImageTrail = ({
   rotationRange = 15,
   containerRef,
   animationSequence = [
-    [{ scale: 1.2, opacity: 1 }, { duration: 0.1, ease: "circOut" }],
-    [{ scale: 0, opacity: 0 }, { duration: 0.8, ease: "circIn" }],
+    [{ opacity: 1 }, { duration: 0.1, ease: "circOut" }],
+    [{ opacity: 0 }, { duration: 0.8, ease: "circIn" }],
   ],
   interval = 150,
 }: ImageTrailProps) => {
@@ -222,7 +220,6 @@ const ImageTrail = ({
         y: mousePos.y,
         rotation: (Math.random() - 0.5) * rotationRange * 2,
         animationSequence,
-        scale: 1,
         child: childrenArray[currentIndexRef.current],
       }
 
