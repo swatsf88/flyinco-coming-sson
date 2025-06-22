@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useRef, useEffect, useCallback, createContext, useContext, ReactNode, Children, useMemo } from 'react'
-import { motion, useAnimationFrame, AnimatePresence, useMotionTemplate, useMotionValue, animate, useAnimate, Target, Transition, AnimationSequence } from 'framer-motion'
+import { motion, useAnimationFrame, AnimatePresence, useMotionTemplate, useMotionValue, animate, useAnimate, Transition, AnimationSequence } from 'framer-motion'
 import { RefObject } from 'react'
 import { 
   Plane, 
@@ -172,15 +172,12 @@ const GradientTracing: React.FC<GradientTracingProps> = ({
 }
 
 // Image Trail Component
-type TrailSegment = [Target, Transition]
-type TrailAnimationSequence = TrailSegment[]
-
 interface ImageTrailProps {
   children: React.ReactNode
   containerRef?: React.RefObject<HTMLElement>
   newOnTop?: boolean
   rotationRange?: number
-  animationSequence?: TrailAnimationSequence
+  animationSequence?: Array<[any, Transition]>
   interval?: number
 }
 
@@ -189,7 +186,7 @@ interface TrailItem {
   x: number
   y: number
   rotation: number
-  animationSequence: TrailAnimationSequence
+  animationSequence: Array<[any, Transition]>
   child: React.ReactNode
 }
 
@@ -278,7 +275,7 @@ const TrailItem = ({ item, onComplete }: TrailItemProps) => {
   const [scope, animate] = useAnimate()
 
   useEffect(() => {
-    const sequence = item.animationSequence.map((segment: TrailSegment) => [
+    const sequence = item.animationSequence.map((segment) => [
       scope.current,
       ...segment,
     ])
