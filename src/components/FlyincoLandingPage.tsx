@@ -15,10 +15,14 @@ import {
   Compass,
   Luggage
 } from 'lucide-react'
-import { v4 as uuidv4 } from 'uuid'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
+
+// Generate unique ID without external dependency
+const generateId = () => {
+  return Math.random().toString(36).substring(2) + Date.now().toString(36)
+}
 
 // Custom hook for mouse position
 const useMousePositionRef = (containerRef?: RefObject<HTMLElement | SVGElement>) => {
@@ -212,7 +216,7 @@ const ImageTrail = ({
   const addToTrail = useCallback(
     (mousePos: { x: number; y: number }) => {
       const newItem: TrailItem = {
-        id: uuidv4(),
+        id: generateId(),
         x: mousePos.x,
         y: mousePos.y,
         rotation: (Math.random() - 0.5) * rotationRange * 2,
