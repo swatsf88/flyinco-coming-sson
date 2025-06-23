@@ -427,55 +427,21 @@ const Concierge = ({ className }: { className?: string }) => (
   </svg>
 )
 
-// Logo Component
+// Logo Component - Updated to use actual logo image
 const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size?: "sm" | "md" | "lg" }) => {
   const sizeClasses = {
-    sm: "text-xl",
-    md: "text-2xl",
-    lg: "text-3xl xl:text-4xl"
+    sm: "h-8",
+    md: "h-12", 
+    lg: "h-16"
   }
   
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <div className="relative">
-        {/* Wing-like curves */}
-        <svg 
-          className={`${size === 'sm' ? 'w-8 h-6' : size === 'md' ? 'w-10 h-8' : 'w-12 h-10'}`} 
-          viewBox="0 0 48 40" 
-          fill="none"
-        >
-          <path 
-            d="M8 20C8 12 15 5 24 5C33 5 40 12 40 20C40 25 37 29 33 31" 
-            stroke="url(#logoGradient1)" 
-            strokeWidth="3" 
-            fill="none"
-          />
-          <path 
-            d="M12 25C12 18 17 12 24 12C31 12 36 18 36 25" 
-            stroke="url(#logoGradient2)" 
-            strokeWidth="2" 
-            fill="none"
-          />
-          <defs>
-            <linearGradient id="logoGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#8b5cf6" />
-              <stop offset="100%" stopColor="#06b6d4" />
-            </linearGradient>
-            <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#06b6d4" />
-              <stop offset="100%" stopColor="#8b5cf6" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      <div className="flex flex-col">
-        <span className={`font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/90 ${sizeClasses[size]}`}>
-          FLYINCO
-        </span>
-        <span className={`${size === 'sm' ? 'text-xs' : 'text-sm'} text-white/70 tracking-wider uppercase font-medium`}>
-          Travel & Tourism
-        </span>
-      </div>
+    <div className={`flex items-center ${className}`}>
+      <img 
+        src="/lovable-uploads/b801f0a0-a65a-4706-b60f-02f9c4959da6.png" 
+        alt="Flyinco Travel & Tourism" 
+        className={`${sizeClasses[size]} w-auto object-contain`}
+      />
     </div>
   )
 }
