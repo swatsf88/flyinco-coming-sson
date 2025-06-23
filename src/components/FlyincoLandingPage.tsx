@@ -13,7 +13,9 @@ import {
   Sparkles,
   MapPin,
   Compass,
-  Luggage
+  Luggage,
+  Phone,
+  Globe
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -425,6 +427,80 @@ const Concierge = ({ className }: { className?: string }) => (
   </svg>
 )
 
+// Logo Component
+const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size?: "sm" | "md" | "lg" }) => {
+  const sizeClasses = {
+    sm: "text-xl",
+    md: "text-2xl",
+    lg: "text-3xl xl:text-4xl"
+  }
+  
+  return (
+    <div className={`flex items-center gap-3 ${className}`}>
+      <div className="relative">
+        {/* Wing-like curves */}
+        <svg 
+          className={`${size === 'sm' ? 'w-8 h-6' : size === 'md' ? 'w-10 h-8' : 'w-12 h-10'}`} 
+          viewBox="0 0 48 40" 
+          fill="none"
+        >
+          <path 
+            d="M8 20C8 12 15 5 24 5C33 5 40 12 40 20C40 25 37 29 33 31" 
+            stroke="url(#logoGradient1)" 
+            strokeWidth="3" 
+            fill="none"
+          />
+          <path 
+            d="M12 25C12 18 17 12 24 12C31 12 36 18 36 25" 
+            stroke="url(#logoGradient2)" 
+            strokeWidth="2" 
+            fill="none"
+          />
+          <defs>
+            <linearGradient id="logoGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="#06b6d4" />
+            </linearGradient>
+            <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#06b6d4" />
+              <stop offset="100%" stopColor="#8b5cf6" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div className="flex flex-col">
+        <span className={`font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/90 ${sizeClasses[size]}`}>
+          FLYINCO
+        </span>
+        <span className={`${size === 'sm' ? 'text-xs' : 'text-sm'} text-white/70 tracking-wider uppercase font-medium`}>
+          Travel & Tourism
+        </span>
+      </div>
+    </div>
+  )
+}
+
+// Header Component
+const Header = () => {
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <FlyincoLogo size="md" />
+          <nav className="hidden md:flex items-center gap-8">
+            <a href="#about" className="text-white/70 hover:text-white transition-colors">About</a>
+            <a href="#services" className="text-white/70 hover:text-white transition-colors">Services</a>
+            <a href="#waitlist" className="text-white/70 hover:text-white transition-colors">Join Waitlist</a>
+          </nav>
+          <div className="flex items-center gap-4 text-sm text-white/60">
+            <span className="hidden lg:block">www.flyinco.com</span>
+          </div>
+        </div>
+      </div>
+    </header>
+  )
+}
+
 // Main Component
 const FlyincoLandingPage = () => {
   const [formData, setFormData] = useState({
@@ -502,11 +578,14 @@ const FlyincoLandingPage = () => {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white overflow-hidden">
+      {/* Header */}
+      <Header />
+
       {/* Hero Section */}
       <motion.section
         ref={heroRef}
         style={{ backgroundImage }}
-        className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden pt-20"
       >
         {/* Image Trail Effect */}
         <ImageTrail containerRef={heroRef}>
@@ -686,7 +765,7 @@ const FlyincoLandingPage = () => {
       </motion.section>
 
       {/* About Section */}
-      <section className="relative py-32 px-4 bg-gradient-to-b from-slate-900 to-slate-800">
+      <section id="about" className="relative py-32 px-4 bg-gradient-to-b from-slate-900 to-slate-800">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -701,6 +780,65 @@ const FlyincoLandingPage = () => {
             <p className="text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
               Flyinco transforms the way businesses handle travel. Our premium platform combines cutting-edge technology 
               with personalized service to deliver an unparalleled corporate travel experience.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className="group p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all relative overflow-hidden"
+                whileHover={{ scale: 1.05, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Gradient tracing effect on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <GradientTracing
+                    width={300}
+                    height={200}
+                    path="M0,0 L300,0 L300,200 L0,200 Z"
+                    gradientColors={["#3b82f6", "#8b5cf6", "#06b6d4"]}
+                    animationDuration={2}
+                    strokeWidth={1}
+                  />
+                </div>
+                
+                <motion.div
+                  className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 flex items-center justify-center mx-auto mb-6 relative z-10"
+                  whileHover={{ rotateY: 180, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <service.icon className="w-8 h-8 text-blue-300" />
+                </motion.div>
+                <h3 className="text-xl font-semibold text-white mb-3 relative z-10">{service.title}</h3>
+                <p className="text-white/60 relative z-10">{service.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="relative py-32 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
+        <div className="max-w-6xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+              Our Services
+            </h2>
+            <p className="text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+              Comprehensive travel solutions for the modern business traveler across KSA, Bahrain, UAE, and India.
             </p>
           </motion.div>
 
@@ -887,6 +1025,79 @@ const FlyincoLandingPage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="relative bg-slate-900 border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Company Info */}
+            <div className="space-y-6">
+              <FlyincoLogo size="lg" />
+              <p className="text-white/60 leading-relaxed">
+                Premium corporate travel & booking experience redefined. 
+                Serving businesses across KSA, Bahrain, UAE, and India.
+              </p>
+              <div className="flex items-center gap-4">
+                <Globe className="w-5 h-5 text-purple-400" />
+                <span className="text-white/70">www.flyinco.com</span>
+              </div>
+            </div>
+
+            {/* Contact Information */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-white mb-4">Contact Information</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                  <div className="space-y-1">
+                    <p className="text-white/70">+966 55 618 2021</p>
+                    <p className="text-white/70">+973 33 37 2021</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                  <p className="text-white/70">sabith@flyinco.com</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Office Locations */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-white mb-4">Office Locations</h3>
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <h4 className="text-white/90 font-medium">Saudi Arabia</h4>
+                  <div className="text-sm text-white/60 leading-relaxed">
+                    <p>Al Mousa Center, Tower #4, Floor #5</p>
+                    <p>Office #454B, Olaya Main St.</p>
+                    <p>Olaya, Riyadh, KSA</p>
+                    <p className="text-purple-400">Metro: King Fahad Library (#22, Blue Line)</p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="text-white/90 font-medium">Bahrain</h4>
+                  <div className="text-sm text-white/60 leading-relaxed">
+                    <p>A0227, Zubara Avenue, Awal Street</p>
+                    <p>Al Qudaybiyah, Manama, Bahrain</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="border-t border-white/10 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="text-white/50 text-sm">
+                © 2024 Flyinco Travel & Tourism. All rights reserved.
+              </div>
+              <div className="flex items-center gap-6 text-sm text-white/60">
+                <span>Managing Director: Muhammad Sabith</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
 
       {/* Floating CTA Button */}
       <motion.div
