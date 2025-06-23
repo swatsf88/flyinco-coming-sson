@@ -19,7 +19,11 @@ import {
   Calendar,
   Shield,
   CreditCard,
-  Users
+  Users,
+  Star,
+  Award,
+  Clock,
+  HeartHandshake
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -453,16 +457,34 @@ const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size
 // Header Component
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10">
-      <div className="container mx-auto px-4 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-lg border-b border-white/10">
+      <div className="container mx-auto px-4 py-3 lg:py-4">
         <div className="flex items-center justify-between">
-          <FlyincoLogo size="md" />
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-white/70 hover:text-white transition-colors">About</a>
-            <a href="#services" className="text-white/70 hover:text-white transition-colors">Services</a>
-            <a href="#waitlist" className="text-white/70 hover:text-white transition-colors">Join Waitlist</a>
+          <FlyincoLogo size="md" className="flex-shrink-0" />
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+            <a 
+              href="#about" 
+              className="text-white/70 hover:text-white transition-colors text-sm lg:text-base font-medium"
+              aria-label="Learn about Flyinco"
+            >
+              About
+            </a>
+            <a 
+              href="#services" 
+              className="text-white/70 hover:text-white transition-colors text-sm lg:text-base font-medium"
+              aria-label="View our services"
+            >
+              Services
+            </a>
+            <a 
+              href="#waitlist" 
+              className="text-white/70 hover:text-white transition-colors text-sm lg:text-base font-medium"
+              aria-label="Join our waitlist"
+            >
+              Join Waitlist
+            </a>
           </nav>
-          <div className="flex items-center gap-4 text-sm text-white/60">
+          <div className="flex items-center gap-4 text-xs lg:text-sm text-white/60">
             <span className="hidden lg:block">www.flyinco.com</span>
           </div>
         </div>
@@ -540,14 +562,21 @@ const FlyincoLandingPage = () => {
   }
 
   const services = [
-    { icon: Plane, title: "Flights", description: "Premium flight booking" },
-    { icon: Hotel, title: "Hotels", description: "Luxury accommodations" },
-    { icon: Car, title: "Car Booking", description: "Executive transportation" },
-    { icon: Concierge, title: "Concierge Services", description: "24/7 premium support" },
+    { icon: Plane, title: "Flights", description: "Premium flight booking with competitive rates" },
+    { icon: Hotel, title: "Hotels", description: "Luxury accommodations worldwide" },
+    { icon: Car, title: "Car Booking", description: "Executive transportation solutions" },
+    { icon: Concierge, title: "Concierge Services", description: "24/7 premium support team" },
     { icon: Calendar, title: "Trip Planning", description: "Complete itinerary management" },
-    { icon: Shield, title: "Travel Insurance", description: "Comprehensive coverage" },
+    { icon: Shield, title: "Travel Insurance", description: "Comprehensive coverage plans" },
     { icon: CreditCard, title: "Expense Management", description: "Corporate billing solutions" },
     { icon: Users, title: "Group Travel", description: "Team and event coordination" }
+  ]
+
+  const features = [
+    { icon: Clock, title: "24/7 Support", description: "Round-the-clock assistance" },
+    { icon: Award, title: "Premium Quality", description: "Curated travel experiences" },
+    { icon: HeartHandshake, title: "Personalized Service", description: "Tailored to your needs" },
+    { icon: Star, title: "Trusted Partner", description: "Reliable and professional" }
   ]
 
   return (
@@ -637,7 +666,7 @@ const FlyincoLandingPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-6"
+            className="mb-8"
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm font-medium">
               <motion.div
@@ -655,7 +684,7 @@ const FlyincoLandingPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
+            className="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 tracking-tight"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               Flyinco is
@@ -683,15 +712,16 @@ const FlyincoLandingPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed"
           >
-            Premium corporate travel & booking experience redefined.
+            Premium corporate travel & booking experience redefined for modern businesses across the Middle East and India.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.button
               onClick={scrollToWaitlist}
@@ -712,10 +742,31 @@ const FlyincoLandingPage = () => {
               </span>
             </motion.button>
           </motion.div>
+
+          {/* Key Features Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mt-16 max-w-4xl mx-auto"
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                className="text-center p-4 lg:p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <feature.icon className="w-6 h-6 lg:w-8 lg:h-8 text-blue-400 mx-auto mb-3" />
+                <h3 className="text-sm lg:text-base font-semibold text-white mb-2">{feature.title}</h3>
+                <p className="text-xs lg:text-sm text-white/60">{feature.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
 
         {/* Floating particles */}
-        {[...Array(50)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-white/30 rounded-full"
@@ -739,7 +790,7 @@ const FlyincoLandingPage = () => {
       </motion.section>
 
       {/* About Section */}
-      <section id="about" className="relative py-32 px-4 bg-gradient-to-b from-slate-900 to-slate-800">
+      <section id="about" className="relative py-20 lg:py-32 px-4 bg-gradient-to-b from-slate-900 to-slate-800">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -748,19 +799,19 @@ const FlyincoLandingPage = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               Redefining Corporate Travel
             </h2>
-            <p className="text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg lg:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
               Flyinco transforms the way businesses handle travel. Our premium platform combines cutting-edge technology 
-              with personalized service to deliver an unparalleled corporate travel experience.
+              with personalized service to deliver an unparalleled corporate travel experience across KSA, Bahrain, UAE, and India.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="relative py-32 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
+      <section id="services" className="relative py-20 lg:py-32 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -769,11 +820,11 @@ const FlyincoLandingPage = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               Our Services
             </h2>
-            <p className="text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
-              Comprehensive travel solutions for the modern business traveler across KSA, Bahrain, UAE, and India.
+            <p className="text-lg lg:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+              Comprehensive travel solutions designed for the modern business traveler.
             </p>
           </motion.div>
 
@@ -782,12 +833,12 @@ const FlyincoLandingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
           >
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="group p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all relative overflow-hidden"
+                className="group p-6 lg:p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all relative overflow-hidden"
                 whileHover={{ scale: 1.05, y: -10 }}
                 transition={{ duration: 0.3 }}
               >
@@ -804,14 +855,14 @@ const FlyincoLandingPage = () => {
                 </div>
                 
                 <motion.div
-                  className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 flex items-center justify-center mx-auto mb-6 relative z-10"
+                  className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 flex items-center justify-center mx-auto mb-6 relative z-10"
                   whileHover={{ rotateY: 180, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <service.icon className="w-8 h-8 text-blue-300" />
+                  <service.icon className="w-6 h-6 lg:w-8 lg:h-8 text-blue-300" />
                 </motion.div>
-                <h3 className="text-xl font-semibold text-white mb-3 relative z-10">{service.title}</h3>
-                <p className="text-white/60 relative z-10">{service.description}</p>
+                <h3 className="text-lg lg:text-xl font-semibold text-white mb-3 relative z-10">{service.title}</h3>
+                <p className="text-sm lg:text-base text-white/60 relative z-10">{service.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -819,7 +870,7 @@ const FlyincoLandingPage = () => {
       </section>
 
       {/* Waitlist Section */}
-      <section id="waitlist" className="relative py-32 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
+      <section id="waitlist" className="relative py-20 lg:py-32 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -828,10 +879,10 @@ const FlyincoLandingPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               Be the First to Experience
             </h2>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto">
+            <p className="text-lg lg:text-xl text-white/70 max-w-2xl mx-auto">
               Join our exclusive waitlist and get early access to the future of corporate travel.
             </p>
           </motion.div>
@@ -842,7 +893,7 @@ const FlyincoLandingPage = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Card className="p-8 bg-white/5 backdrop-blur-xl border-white/10 relative overflow-hidden">
+            <Card className="p-6 lg:p-8 bg-white/5 backdrop-blur-xl border-white/10 relative overflow-hidden">
               {/* Animated border effect */}
               <div className="absolute inset-0">
                 <GradientTracing
@@ -873,8 +924,9 @@ const FlyincoLandingPage = () => {
                           placeholder="Your Name"
                           value={formData.name}
                           onChange={(e) => handleInputChange('name', e.target.value)}
-                          className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400"
+                          className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400 h-12"
                           required
+                          aria-label="Your name"
                         />
                       </div>
                       <div className="relative">
@@ -883,8 +935,9 @@ const FlyincoLandingPage = () => {
                           placeholder="Email Address"
                           value={formData.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
-                          className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400"
+                          className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400 h-12"
                           required
+                          aria-label="Email address"
                         />
                       </div>
                     </div>
@@ -892,10 +945,11 @@ const FlyincoLandingPage = () => {
                     <div className="relative">
                       <Input
                         type="text"
-                        placeholder="Company Name"
+                        placeholder="Company Name (Optional)"
                         value={formData.company}
                         onChange={(e) => handleInputChange('company', e.target.value)}
-                        className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400"
+                        className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400 h-12"
+                        aria-label="Company name"
                       />
                     </div>
 
@@ -906,7 +960,7 @@ const FlyincoLandingPage = () => {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 text-lg relative overflow-hidden"
+                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 text-lg relative overflow-hidden h-14"
                       >
                         {isSubmitting ? (
                           <motion.div
@@ -916,7 +970,7 @@ const FlyincoLandingPage = () => {
                           />
                         ) : (
                           <>
-                            <span className="relative z-10">Notify Me</span>
+                            <span className="relative z-10">Notify Me When We Launch</span>
                             <motion.div
                               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
                               initial={{ x: "-100%" }}
@@ -948,7 +1002,7 @@ const FlyincoLandingPage = () => {
                           transition={{ duration: 2, repeat: Infinity }}
                         />
                       </motion.div>
-                      <h3 className="text-3xl font-bold text-white mb-4">You're on the list!</h3>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">You're on the list!</h3>
                       <p className="text-white/70 text-lg">
                         Thank you for joining our waitlist. We'll notify you as soon as Flyinco launches.
                       </p>
@@ -963,42 +1017,42 @@ const FlyincoLandingPage = () => {
 
       {/* Footer */}
       <footer className="relative bg-slate-900 border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="max-w-6xl mx-auto px-4 py-12 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Company Info */}
             <div className="space-y-6">
               <FlyincoLogo size="lg" />
-              <p className="text-white/60 leading-relaxed">
+              <p className="text-white/60 leading-relaxed text-sm lg:text-base">
                 Premium corporate travel & booking experience redefined. 
                 Serving businesses across KSA, Bahrain, UAE, and India.
               </p>
               <div className="flex items-center gap-4">
-                <Globe className="w-5 h-5 text-purple-400" />
-                <span className="text-white/70">www.flyinco.com</span>
+                <Globe className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                <span className="text-white/70 text-sm lg:text-base">www.flyinco.com</span>
               </div>
             </div>
 
             {/* Contact Information */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-white mb-4">Contact Information</h3>
+              <h3 className="text-lg lg:text-xl font-semibold text-white mb-4">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
                   <div className="space-y-1">
-                    <p className="text-white/70">+966 55 618 2021</p>
-                    <p className="text-white/70">+973 33 37 2021</p>
+                    <p className="text-white/70 text-sm lg:text-base">+966 55 618 2021</p>
+                    <p className="text-white/70 text-sm lg:text-base">+973 33 37 2021</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
-                  <p className="text-white/70">sabith@flyinco.com</p>
+                  <p className="text-white/70 text-sm lg:text-base">sabith@flyinco.com</p>
                 </div>
               </div>
             </div>
 
             {/* Office Locations */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-white mb-4">Office Locations</h3>
+              <h3 className="text-lg lg:text-xl font-semibold text-white mb-4">Office Locations</h3>
               <div className="space-y-6">
                 <div className="space-y-2">
                   <h4 className="text-white/90 font-medium">Saudi Arabia</h4>
@@ -1036,14 +1090,14 @@ const FlyincoLandingPage = () => {
 
       {/* Floating CTA Button */}
       <motion.div
-        className="fixed bottom-8 right-8 z-50"
+        className="fixed bottom-6 right-6 z-50"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 2, duration: 0.5 }}
       >
         <motion.button
           onClick={scrollToWaitlist}
-          className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg backdrop-blur-sm border border-white/20 relative overflow-hidden"
+          className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-2xl backdrop-blur-sm border border-white/20 relative overflow-hidden"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           animate={{
@@ -1054,6 +1108,7 @@ const FlyincoLandingPage = () => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
+          aria-label="Join waitlist"
         >
           <Mail className="w-5 h-5 relative z-10" />
           <motion.div
