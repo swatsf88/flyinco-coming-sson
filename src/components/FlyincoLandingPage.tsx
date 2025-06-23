@@ -15,7 +15,11 @@ import {
   Compass,
   Luggage,
   Phone,
-  Globe
+  Globe,
+  Calendar,
+  Shield,
+  CreditCard,
+  Users
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -539,7 +543,11 @@ const FlyincoLandingPage = () => {
     { icon: Plane, title: "Flights", description: "Premium flight booking" },
     { icon: Hotel, title: "Hotels", description: "Luxury accommodations" },
     { icon: Car, title: "Car Booking", description: "Executive transportation" },
-    { icon: Concierge, title: "Concierge Services", description: "24/7 premium support" }
+    { icon: Concierge, title: "Concierge Services", description: "24/7 premium support" },
+    { icon: Calendar, title: "Trip Planning", description: "Complete itinerary management" },
+    { icon: Shield, title: "Travel Insurance", description: "Comprehensive coverage" },
+    { icon: CreditCard, title: "Expense Management", description: "Corporate billing solutions" },
+    { icon: Users, title: "Group Travel", description: "Team and event coordination" }
   ]
 
   return (
