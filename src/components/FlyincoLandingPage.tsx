@@ -756,45 +756,6 @@ const FlyincoLandingPage = () => {
               with personalized service to deliver an unparalleled corporate travel experience.
             </p>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                className="group p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all relative overflow-hidden"
-                whileHover={{ scale: 1.05, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Gradient tracing effect on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <GradientTracing
-                    width={300}
-                    height={200}
-                    path="M0,0 L300,0 L300,200 L0,200 Z"
-                    gradientColors={["#3b82f6", "#8b5cf6", "#06b6d4"]}
-                    animationDuration={2}
-                    strokeWidth={1}
-                  />
-                </div>
-                
-                <motion.div
-                  className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 flex items-center justify-center mx-auto mb-6 relative z-10"
-                  whileHover={{ rotateY: 180, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <service.icon className="w-8 h-8 text-blue-300" />
-                </motion.div>
-                <h3 className="text-xl font-semibold text-white mb-3 relative z-10">{service.title}</h3>
-                <p className="text-white/60 relative z-10">{service.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
