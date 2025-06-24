@@ -438,9 +438,9 @@ const Concierge = ({ className }: { className?: string }) => (
 // Logo Component - Updated to use actual logo image
 const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size?: "sm" | "md" | "lg" }) => {
   const sizeClasses = {
-    sm: "h-8",
-    md: "h-12", 
-    lg: "h-16"
+    sm: "h-6",
+    md: "h-8", 
+    lg: "h-12"
   }
   
   return (
@@ -454,37 +454,37 @@ const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size
   )
 }
 
-// Header Component
+// Header Component - Reduced padding
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-lg border-b border-white/10">
-      <div className="container mx-auto px-4 py-3 lg:py-4">
+      <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           <FlyincoLogo size="md" className="flex-shrink-0" />
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             <a 
               href="#about" 
-              className="text-white/70 hover:text-white transition-colors text-sm lg:text-base font-medium"
+              className="text-white/70 hover:text-white transition-colors text-sm font-medium"
               aria-label="Learn about Flyinco"
             >
               About
             </a>
             <a 
               href="#services" 
-              className="text-white/70 hover:text-white transition-colors text-sm lg:text-base font-medium"
+              className="text-white/70 hover:text-white transition-colors text-sm font-medium"
               aria-label="View our services"
             >
               Services
             </a>
             <a 
               href="#waitlist" 
-              className="text-white/70 hover:text-white transition-colors text-sm lg:text-base font-medium"
+              className="text-white/70 hover:text-white transition-colors text-sm font-medium"
               aria-label="Join our waitlist"
             >
               Join Waitlist
             </a>
           </nav>
-          <div className="flex items-center gap-4 text-xs lg:text-sm text-white/60">
+          <div className="flex items-center text-xs text-white/60">
             <span className="hidden lg:block">www.flyinco.com</span>
           </div>
         </div>
@@ -584,11 +584,11 @@ const FlyincoLandingPage = () => {
       {/* Header */}
       <Header />
 
-      {/* Hero Section */}
+      {/* Hero Section - Reduced padding */}
       <motion.section
         ref={heroRef}
         style={{ backgroundImage }}
-        className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden pt-20"
+        className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden pt-16"
       >
         {/* Image Trail Effect */}
         <ImageTrail containerRef={heroRef}>
@@ -666,7 +666,7 @@ const FlyincoLandingPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-8"
+            className="mb-6"
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm font-medium">
               <motion.div
@@ -684,7 +684,7 @@ const FlyincoLandingPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 tracking-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               Flyinco is
@@ -712,7 +712,7 @@ const FlyincoLandingPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl lg:text-2xl text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-white/70 mb-8 max-w-4xl mx-auto leading-relaxed"
           >
             Premium corporate travel & booking experience redefined for modern businesses across the Middle East and India.
           </motion.p>
@@ -721,7 +721,7 @@ const FlyincoLandingPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
             <motion.button
               onClick={scrollToWaitlist}
@@ -743,22 +743,22 @@ const FlyincoLandingPage = () => {
             </motion.button>
           </motion.div>
 
-          {/* Key Features Grid */}
+          {/* Key Features Grid - Reduced spacing */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mt-16 max-w-4xl mx-auto"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 max-w-4xl mx-auto"
           >
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                className="text-center p-4 lg:p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all"
+                className="text-center p-3 lg:p-4 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all"
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ duration: 0.3 }}
               >
-                <feature.icon className="w-6 h-6 lg:w-8 lg:h-8 text-blue-400 mx-auto mb-3" />
-                <h3 className="text-sm lg:text-base font-semibold text-white mb-2">{feature.title}</h3>
+                <feature.icon className="w-6 h-6 lg:w-8 lg:h-8 text-blue-400 mx-auto mb-2" />
+                <h3 className="text-sm lg:text-base font-semibold text-white mb-1">{feature.title}</h3>
                 <p className="text-xs lg:text-sm text-white/60">{feature.description}</p>
               </motion.div>
             ))}
@@ -789,17 +789,16 @@ const FlyincoLandingPage = () => {
         ))}
       </motion.section>
 
-      {/* About Section */}
-      <section id="about" className="relative py-20 lg:py-32 px-4 bg-gradient-to-b from-slate-900 to-slate-800">
+      {/* About Section - Reduced padding */}
+      <section id="about" className="relative py-12 lg:py-16 px-4 bg-gradient-to-b from-slate-900 to-slate-800">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-16"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               Redefining Corporate Travel
             </h2>
             <p className="text-lg lg:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
@@ -810,17 +809,17 @@ const FlyincoLandingPage = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="relative py-20 lg:py-32 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
+      {/* Services Section - Reduced padding and spacing */}
+      <section id="services" className="relative py-12 lg:py-16 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-10"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               Our Services
             </h2>
             <p className="text-lg lg:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
@@ -833,12 +832,12 @@ const FlyincoLandingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
           >
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="group p-6 lg:p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all relative overflow-hidden"
+                className="group p-4 lg:p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all relative overflow-hidden"
                 whileHover={{ scale: 1.05, y: -10 }}
                 transition={{ duration: 0.3 }}
               >
@@ -855,13 +854,13 @@ const FlyincoLandingPage = () => {
                 </div>
                 
                 <motion.div
-                  className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 flex items-center justify-center mx-auto mb-6 relative z-10"
+                  className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 flex items-center justify-center mx-auto mb-4 relative z-10"
                   whileHover={{ rotateY: 180, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <service.icon className="w-6 h-6 lg:w-8 lg:h-8 text-blue-300" />
+                  <service.icon className="w-6 h-6 lg:w-7 lg:h-7 text-blue-300" />
                 </motion.div>
-                <h3 className="text-lg lg:text-xl font-semibold text-white mb-3 relative z-10">{service.title}</h3>
+                <h3 className="text-lg lg:text-xl font-semibold text-white mb-2 relative z-10">{service.title}</h3>
                 <p className="text-sm lg:text-base text-white/60 relative z-10">{service.description}</p>
               </motion.div>
             ))}
@@ -869,17 +868,17 @@ const FlyincoLandingPage = () => {
         </div>
       </section>
 
-      {/* Waitlist Section */}
-      <section id="waitlist" className="relative py-20 lg:py-32 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
+      {/* Waitlist Section - Reduced padding */}
+      <section id="waitlist" className="relative py-12 lg:py-16 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               Be the First to Experience
             </h2>
             <p className="text-lg lg:text-xl text-white/70 max-w-2xl mx-auto">
@@ -893,7 +892,7 @@ const FlyincoLandingPage = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Card className="p-6 lg:p-8 bg-white/5 backdrop-blur-xl border-white/10 relative overflow-hidden">
+            <Card className="p-4 lg:p-6 bg-white/5 backdrop-blur-xl border-white/10 relative overflow-hidden">
               {/* Animated border effect */}
               <div className="absolute inset-0">
                 <GradientTracing
@@ -912,19 +911,19 @@ const FlyincoLandingPage = () => {
                     <motion.form
                       key="form"
                       onSubmit={handleSubmit}
-                      className="space-y-6"
+                      className="space-y-4"
                       initial={{ opacity: 1 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.3 }}
                     >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="relative">
                         <Input
                           type="text"
                           placeholder="Your Name"
                           value={formData.name}
                           onChange={(e) => handleInputChange('name', e.target.value)}
-                          className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400 h-12"
+                          className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400 h-11"
                           required
                           aria-label="Your name"
                         />
@@ -935,7 +934,7 @@ const FlyincoLandingPage = () => {
                           placeholder="Email Address"
                           value={formData.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
-                          className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400 h-12"
+                          className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400 h-11"
                           required
                           aria-label="Email address"
                         />
@@ -948,7 +947,7 @@ const FlyincoLandingPage = () => {
                         placeholder="Company Name (Optional)"
                         value={formData.company}
                         onChange={(e) => handleInputChange('company', e.target.value)}
-                        className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400 h-12"
+                        className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-blue-400 h-11"
                         aria-label="Company name"
                       />
                     </div>
@@ -960,7 +959,7 @@ const FlyincoLandingPage = () => {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 text-lg relative overflow-hidden h-14"
+                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 text-lg relative overflow-hidden h-12"
                       >
                         {isSubmitting ? (
                           <motion.div
@@ -987,23 +986,23 @@ const FlyincoLandingPage = () => {
                       key="success"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-center py-12"
+                      className="text-center py-8"
                     >
                       <motion.div
-                        className="w-20 h-20 rounded-full bg-green-500/20 border border-green-400/30 flex items-center justify-center mx-auto mb-6 relative"
+                        className="w-16 h-16 rounded-full bg-green-500/20 border border-green-400/30 flex items-center justify-center mx-auto mb-4 relative"
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                       >
-                        <CheckCircle className="w-10 h-10 text-green-400" />
+                        <CheckCircle className="w-8 h-8 text-green-400" />
                         <motion.div
                           className="absolute inset-0 rounded-full border-2 border-green-400/50"
                           animate={{ scale: [1, 1.5], opacity: [1, 0] }}
                           transition={{ duration: 2, repeat: Infinity }}
                         />
                       </motion.div>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">You're on the list!</h3>
-                      <p className="text-white/70 text-lg">
+                      <h3 className="text-xl lg:text-2xl font-bold text-white mb-3">You're on the list!</h3>
+                      <p className="text-white/70 text-base">
                         Thank you for joining our waitlist. We'll notify you as soon as Flyinco launches.
                       </p>
                     </motion.div>
@@ -1015,57 +1014,57 @@ const FlyincoLandingPage = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer - Reduced padding */}
       <footer className="relative bg-slate-900 border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-4 py-12 lg:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="max-w-6xl mx-auto px-4 py-8 lg:py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Company Info */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <FlyincoLogo size="lg" />
               <p className="text-white/60 leading-relaxed text-sm lg:text-base">
                 Premium corporate travel & booking experience redefined. 
                 Serving businesses across KSA, Bahrain, UAE, and India.
               </p>
-              <div className="flex items-center gap-4">
-                <Globe className="w-5 h-5 text-purple-400 flex-shrink-0" />
+              <div className="flex items-center gap-3">
+                <Globe className="w-4 h-4 text-purple-400 flex-shrink-0" />
                 <span className="text-white/70 text-sm lg:text-base">www.flyinco.com</span>
               </div>
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-6">
-              <h3 className="text-lg lg:text-xl font-semibold text-white mb-4">Contact Information</h3>
-              <div className="space-y-4">
+            <div className="space-y-4">
+              <h3 className="text-lg lg:text-xl font-semibold text-white">Contact Information</h3>
+              <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                  <Phone className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
                   <div className="space-y-1">
                     <p className="text-white/70 text-sm lg:text-base">+966 55 618 2021</p>
                     <p className="text-white/70 text-sm lg:text-base">+973 33 37 2021</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                  <Mail className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
                   <p className="text-white/70 text-sm lg:text-base">sabith@flyinco.com</p>
                 </div>
               </div>
             </div>
 
             {/* Office Locations */}
-            <div className="space-y-6">
-              <h3 className="text-lg lg:text-xl font-semibold text-white mb-4">Office Locations</h3>
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <h4 className="text-white/90 font-medium">Saudi Arabia</h4>
-                  <div className="text-sm text-white/60 leading-relaxed">
+            <div className="space-y-4">
+              <h3 className="text-lg lg:text-xl font-semibold text-white">Office Locations</h3>
+              <div className="space-y-4">
+                <div className="space-y-1">
+                  <h4 className="text-white/90 font-medium text-sm">Saudi Arabia</h4>
+                  <div className="text-xs text-white/60 leading-relaxed">
                     <p>Al Mousa Center, Tower #4, Floor #5</p>
                     <p>Office #454B, Olaya Main St.</p>
                     <p>Olaya, Riyadh, KSA</p>
                     <p className="text-purple-400">Metro: King Fahad Library (#22, Blue Line)</p>
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <h4 className="text-white/90 font-medium">Bahrain</h4>
-                  <div className="text-sm text-white/60 leading-relaxed">
+                <div className="space-y-1">
+                  <h4 className="text-white/90 font-medium text-sm">Bahrain</h4>
+                  <div className="text-xs text-white/60 leading-relaxed">
                     <p>A0227, Zubara Avenue, Awal Street</p>
                     <p>Al Qudaybiyah, Manama, Bahrain</p>
                   </div>
@@ -1075,12 +1074,12 @@ const FlyincoLandingPage = () => {
           </div>
 
           {/* Bottom Section */}
-          <div className="border-t border-white/10 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="text-white/50 text-sm">
+          <div className="border-t border-white/10 mt-8 pt-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+              <div className="text-white/50 text-xs">
                 © 2024 Flyinco Travel & Tourism. All rights reserved.
               </div>
-              <div className="flex items-center gap-6 text-sm text-white/60">
+              <div className="flex items-center gap-4 text-xs text-white/60">
                 <span>Managing Director: Muhammad Sabith</span>
               </div>
             </div>
@@ -1090,18 +1089,18 @@ const FlyincoLandingPage = () => {
 
       {/* Floating CTA Button */}
       <motion.div
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-4 right-4 z-50"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 2, duration: 0.5 }}
       >
         <motion.button
           onClick={scrollToWaitlist}
-          className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-2xl backdrop-blur-sm border border-white/20 relative overflow-hidden"
+          className="p-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-2xl backdrop-blur-sm border border-white/20 relative overflow-hidden"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           animate={{
-            y: [0, -10, 0],
+            y: [0, -8, 0],
           }}
           transition={{
             duration: 2,
