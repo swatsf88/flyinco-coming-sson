@@ -435,7 +435,7 @@ const Concierge = ({ className }: { className?: string }) => (
   </svg>
 )
 
-// Logo Component - Updated to use actual logo image
+// Logo Component - Updated to use white logo
 const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size?: "sm" | "md" | "lg" }) => {
   const sizeClasses = {
     sm: "h-6",
@@ -446,7 +446,7 @@ const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size
   return (
     <div className={`flex items-center ${className}`}>
       <img 
-        src="/lovable-uploads/b801f0a0-a65a-4706-b60f-02f9c4959da6.png" 
+        src="/public/lovable-uploads/21d9d19e-707e-408e-9bc9-e37e8d1a1bdd.png" 
         alt="Flyinco Travel & Tourism" 
         className={`${sizeClasses[size]} w-auto object-contain`}
       />
