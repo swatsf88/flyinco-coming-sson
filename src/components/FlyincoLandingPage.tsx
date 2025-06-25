@@ -446,7 +446,7 @@ const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size
   return (
     <div className={`flex items-center ${className}`}>
       <img 
-        src="/lovable-uploads/21d9d19e-707e-408e-9bc9-e37e8d1a1bdd.png" 
+        src="/lovable-uploads/b801f0a0-a65a-4706-b60f-02f9c4959da6.png" 
         alt="Flyinco Travel & Tourism" 
         className={`${sizeClasses[size]} w-auto object-contain`}
       />
@@ -1044,7 +1044,7 @@ const FlyincoLandingPage = () => {
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-                  <p className="text-white/70 text-sm lg:text-base">sabith@flyinco.com</p>
+                  <p className="text-white/70 text-sm lg:text-base">info@flyinco.com</p>
                 </div>
               </div>
             </div>
@@ -1078,9 +1078,6 @@ const FlyincoLandingPage = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-3">
               <div className="text-white/50 text-xs">
                 © 2024 Flyinco Travel & Tourism. All rights reserved.
-              </div>
-              <div className="flex items-center gap-4 text-xs text-white/60">
-                <span>Managing Director: Muhammad Sabith</span>
               </div>
             </div>
           </div>
