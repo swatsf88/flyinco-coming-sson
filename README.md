@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/92ffdded-f129-4571-9cf3-b540ba604191
+**URL**: flyinco.com
 
 ## How can I edit this code?
 
@@ -59,7 +59,7 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/92ffdded-f129-4571-9cf3-b540ba604191) and click on Share -> Publish.
+Simply open contact swqalih and click on Share -> Publish.
 
 ## Can I connect a custom domain to my Lovable project?
 
