@@ -5,6 +5,7 @@ import { ComingSoonBadge } from "@/components/ui/coming-soon-badge";
 import { EmailSignup } from "@/components/ui/email-signup";
 import { FloatingElements } from "@/components/ui/floating-elements";
 import { ServicesSection } from "@/components/ui/services-section";
+import { OfficeLocations } from "@/components/ui/office-locations";
 
 const LaunchingSoonPage = () => {
   return (
@@ -141,6 +142,11 @@ const LaunchingSoonPage = () => {
       {/* Services Section */}
       <div className="relative z-10">
         <ServicesSection />
+      </div>
+
+      {/* Office Locations Section */}
+      <div className="relative z-10">
+        <OfficeLocations />
       </div>
 
       {/* Footer */}
