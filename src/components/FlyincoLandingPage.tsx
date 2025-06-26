@@ -1,16 +1,8 @@
 
-import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import LaunchingSoonPage from "@/components/LaunchingSoonPage";
 
 const FlyincoLandingPage = () => {
-  return (
-    <div className="min-h-screen">
-      <HeroGeometric 
-        badge="Flyinco Travel & Tourism"
-        title1="Discover Amazing"
-        title2="Travel Destinations"
-      />
-    </div>
-  );
+  return <LaunchingSoonPage />;
 };
 
 export default FlyincoLandingPage;
