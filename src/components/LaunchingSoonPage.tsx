@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { FlyincoLogo } from "@/components/ui/flyinco-logo";
-import { CountdownTimer } from "@/components/ui/countdown-timer";
+import { ComingSoonBadge } from "@/components/ui/coming-soon-badge";
 import { EmailSignup } from "@/components/ui/email-signup";
 import { FloatingElements } from "@/components/ui/floating-elements";
 
@@ -112,9 +112,9 @@ const LaunchingSoonPage = () => {
             </motion.p>
           </motion.div>
 
-          {/* Countdown Timer */}
+          {/* Coming Soon Badge */}
           <div className="mb-12">
-            <CountdownTimer />
+            <ComingSoonBadge />
           </div>
 
           {/* Email Signup */}
@@ -152,7 +152,7 @@ const LaunchingSoonPage = () => {
             
             <div className="flex items-center gap-6">
               <span>www.flyinco.com</span>
-              <span>sabith@flyinco.com</span>
+              <span>info@flyinco.com</span>
             </div>
           </div>
         </div>
