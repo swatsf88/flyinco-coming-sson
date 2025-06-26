@@ -8,9 +8,9 @@ interface FlyincoLogoProps {
 
 const FlyincoLogo = ({ className = "", size = "md" }: FlyincoLogoProps) => {
   const sizeClasses = {
-    sm: "h-8 w-auto",
-    md: "h-12 w-auto",
-    lg: "h-16 w-auto"
+    sm: "text-lg md:text-xl",
+    md: "text-xl md:text-2xl lg:text-3xl",
+    lg: "text-2xl md:text-3xl lg:text-4xl"
   };
 
   return (
@@ -20,19 +20,16 @@ const FlyincoLogo = ({ className = "", size = "md" }: FlyincoLogoProps) => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`relative ${className}`}
     >
-      <div className="relative">
-        {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#7A5CFA] to-[#12FCD4] opacity-20 blur-xl rounded-full transform scale-150"></div>
-        
-        {/* Logo text with brand styling */}
-        <div className="relative z-10 flex items-center gap-2">
-          <div className="text-white font-bold tracking-wide text-xl md:text-2xl lg:text-3xl">
-            <span className="bg-gradient-to-r from-white via-[#12FCD4] to-[#7A5CFA] bg-clip-text text-transparent">
+      <div className="relative flex flex-col items-center">
+        {/* Main logo */}
+        <div className="relative z-10 flex items-center gap-2 mb-1">
+          <div className={`text-white font-bold tracking-wide ${sizeClasses[size]}`}>
+            <span className="bg-gradient-to-r from-white via-[#E6E6FA] to-[#9370DB] bg-clip-text text-transparent">
               FLYINCO
             </span>
           </div>
           
-          {/* Animated wing element */}
+          {/* Wing element inspired by the logo */}
           <motion.div
             animate={{ 
               rotateY: [0, 15, 0],
@@ -45,8 +42,8 @@ const FlyincoLogo = ({ className = "", size = "md" }: FlyincoLogoProps) => {
             }}
             className="relative"
           >
-            <div className="w-8 h-2 bg-gradient-to-r from-[#7A5CFA] to-[#12FCD4] rounded-full transform -skew-x-12"></div>
-            <div className="absolute -top-1 -right-1 w-6 h-1 bg-gradient-to-r from-[#12FCD4] to-transparent rounded-full transform -skew-x-12"></div>
+            <div className="w-6 h-1.5 bg-gradient-to-r from-[#9370DB] to-[#E6E6FA] rounded-full transform -skew-x-12"></div>
+            <div className="absolute -top-0.5 -right-1 w-4 h-0.5 bg-gradient-to-r from-[#E6E6FA] to-transparent rounded-full transform -skew-x-12"></div>
           </motion.div>
         </div>
         
@@ -55,7 +52,7 @@ const FlyincoLogo = ({ className = "", size = "md" }: FlyincoLogoProps) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-white/60 text-xs md:text-sm tracking-[0.2em] mt-1 text-center"
+          className="text-white/80 text-xs md:text-sm tracking-[0.2em] text-center"
         >
           TRAVEL & TOURISM
         </motion.div>

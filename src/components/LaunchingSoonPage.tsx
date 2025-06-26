@@ -4,6 +4,7 @@ import { FlyincoLogo } from "@/components/ui/flyinco-logo";
 import { ComingSoonBadge } from "@/components/ui/coming-soon-badge";
 import { EmailSignup } from "@/components/ui/email-signup";
 import { FloatingElements } from "@/components/ui/floating-elements";
+import { ServicesSection } from "@/components/ui/services-section";
 
 const LaunchingSoonPage = () => {
   return (
@@ -37,16 +38,16 @@ const LaunchingSoonPage = () => {
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative z-20 pt-8 px-6"
+        className="relative z-20 pt-6 md:pt-8 px-4 md:px-6"
       >
-        <div className="container mx-auto flex justify-between items-center">
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <FlyincoLogo size="md" />
           
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5 }}
-            className="hidden md:flex items-center gap-4 text-white/60 text-sm"
+            className="flex items-center gap-2 md:gap-4 text-white/70 text-xs md:text-sm"
           >
             <span>KSA</span>
             <span>|</span>
@@ -60,7 +61,7 @@ const LaunchingSoonPage = () => {
       </motion.header>
 
       {/* Main content */}
-      <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 -mt-20">
+      <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 md:px-6 -mt-16 md:-mt-20">
         <div className="container mx-auto max-w-4xl text-center">
           
           {/* Hero section */}
@@ -68,16 +69,16 @@ const LaunchingSoonPage = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 1 }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.05] border border-white/[0.1] mb-8 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-white/[0.05] border border-white/[0.1] mb-6 md:mb-8 backdrop-blur-sm"
             >
               <div className="w-2 h-2 bg-[#12FCD4] rounded-full animate-pulse"></div>
-              <span className="text-white/80 text-sm tracking-wide">
+              <span className="text-white/90 text-xs md:text-sm tracking-wide">
                 The Future of Travel Technology
               </span>
             </motion.div>
@@ -86,9 +87,9 @@ const LaunchingSoonPage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 md:mb-6 leading-tight"
             >
-              <span className="bg-gradient-to-b from-white via-white to-white/70 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-b from-white via-white to-white/80 bg-clip-text text-transparent">
                 Something
               </span>
               <br />
@@ -96,7 +97,7 @@ const LaunchingSoonPage = () => {
                 Amazing
               </span>
               <br />
-              <span className="bg-gradient-to-b from-white via-white to-white/70 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-b from-white via-white to-white/80 bg-clip-text text-transparent">
                 is Coming
               </span>
             </motion.h1>
@@ -105,7 +106,7 @@ const LaunchingSoonPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
-              className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed"
+              className="text-base md:text-lg lg:text-xl text-white/70 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4 md:px-0"
             >
               Experience the next generation of travel technology. 
               Flyinco is revolutionizing how you explore the world with cutting-edge innovation and seamless experiences.
@@ -113,12 +114,12 @@ const LaunchingSoonPage = () => {
           </motion.div>
 
           {/* Coming Soon Badge */}
-          <div className="mb-12">
+          <div className="mb-8 md:mb-12">
             <ComingSoonBadge />
           </div>
 
           {/* Email Signup */}
-          <div className="mb-8">
+          <div className="mb-6 md:mb-8">
             <EmailSignup />
           </div>
 
@@ -127,32 +128,42 @@ const LaunchingSoonPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 0.8 }}
-            className="flex items-center justify-center gap-8 text-white/40 text-sm"
+            className="flex items-center justify-center gap-4 md:gap-8 text-white/50 text-sm"
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-[#12FCD4] rounded-full"></div>
-              <span>Join 10,000+ Travel Enthusiasts</span>
+              <span className="text-xs md:text-sm">Join 10,000+ Travel Enthusiasts</span>
             </div>
           </motion.div>
         </div>
       </main>
+
+      {/* Services Section */}
+      <div className="relative z-10">
+        <ServicesSection />
+      </div>
 
       {/* Footer */}
       <motion.footer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="relative z-20 pb-8 px-6"
+        className="relative z-20 pb-6 md:pb-8 px-4 md:px-6"
       >
         <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/40 text-sm">
-            <div className="flex items-center gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/50 text-sm">
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
               <span>© 2024 Flyinco Travel & Tourism</span>
             </div>
             
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 text-center">
               <span>www.flyinco.com</span>
               <span>info@flyinco.com</span>
+              <div className="flex items-center gap-3 text-xs">
+                <span>+966 55 618 2021</span>
+                <span>|</span>
+                <span>+973 33 37 2021</span>
+              </div>
             </div>
           </div>
         </div>
@@ -163,10 +174,10 @@ const LaunchingSoonPage = () => {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 0.8 }}
-        className="fixed bottom-6 left-6 right-6 md:hidden z-30"
+        className="fixed bottom-4 left-4 right-4 md:hidden z-30"
       >
         <div className="backdrop-blur-xl bg-gradient-to-r from-[#5A35F2] to-[#C14DFF] rounded-2xl p-4 shadow-[0_8px_32px_0_rgba(90,53,242,0.4)]">
-          <div className="text-center text-white font-semibold">
+          <div className="text-center text-white font-semibold text-sm">
             🚀 Get Early Access - Notify Me!
           </div>
         </div>

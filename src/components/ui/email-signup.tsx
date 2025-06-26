@@ -29,16 +29,16 @@ const EmailSignup = () => {
       className="w-full max-w-md mx-auto"
     >
       {/* Glassmorphism container */}
-      <div className="relative backdrop-blur-xl bg-white/[0.03] border border-white/[0.1] rounded-3xl p-6 md:p-8 shadow-[0_8px_32px_0_rgba(122,92,250,0.15)]">
+      <div className="relative backdrop-blur-xl bg-white/[0.03] border border-white/[0.1] rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 shadow-[0_8px_32px_0_rgba(122,92,250,0.15)]">
         {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#7A5CFA]/10 via-transparent to-[#12FCD4]/10 rounded-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#7A5CFA]/10 via-transparent to-[#12FCD4]/10 rounded-2xl md:rounded-3xl"></div>
         
         <div className="relative z-10">
           <motion.h4
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            className="text-white/90 text-lg md:text-xl font-semibold mb-2 text-center"
+            className="text-white/95 text-lg md:text-xl font-semibold mb-2 text-center"
           >
             Be the First to Know
           </motion.h4>
@@ -47,12 +47,12 @@ const EmailSignup = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
-            className="text-white/60 text-sm mb-6 text-center"
+            className="text-white/70 text-sm mb-4 md:mb-6 text-center"
           >
             Get notified when we launch and receive exclusive early access
           </motion.p>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileFocus={{ scale: 1.02 }}
@@ -63,7 +63,7 @@ const EmailSignup = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full bg-white/[0.05] border-white/[0.15] text-white placeholder:text-white/40 focus:border-[#12FCD4] focus:ring-[#12FCD4]/20 rounded-xl h-12 px-4 backdrop-blur-sm"
+                className="w-full bg-white/[0.05] border-white/[0.15] text-white placeholder:text-white/50 focus:border-[#12FCD4] focus:ring-[#12FCD4]/20 rounded-xl h-10 md:h-12 px-4 backdrop-blur-sm"
               />
             </motion.div>
             
@@ -74,13 +74,13 @@ const EmailSignup = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-12 bg-gradient-to-r from-[#5A35F2] to-[#C14DFF] hover:from-[#6B46FF] hover:to-[#D35EFF] text-white font-semibold rounded-xl shadow-[0_4px_20px_0_rgba(90,53,242,0.4)] hover:shadow-[0_8px_30px_0_rgba(90,53,242,0.6)] transition-all duration-300 border-0"
+                className="w-full h-10 md:h-12 bg-gradient-to-r from-[#5A35F2] to-[#C14DFF] hover:from-[#6B46FF] hover:to-[#D35EFF] text-white font-semibold rounded-xl shadow-[0_4px_20px_0_rgba(90,53,242,0.4)] hover:shadow-[0_8px_30px_0_rgba(90,53,242,0.6)] transition-all duration-300 border-0 text-sm md:text-base"
               >
                 {isSubmitting ? (
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
+                    className="w-4 h-4 md:w-5 md:h-5 border-2 border-white/30 border-t-white rounded-full"
                   />
                 ) : (
                   "Notify Me 🚀"
@@ -91,8 +91,8 @@ const EmailSignup = () => {
         </div>
 
         {/* Decorative elements */}
-        <div className="absolute -top-2 -right-2 w-4 h-4 bg-[#12FCD4] rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#7A5CFA] rounded-full opacity-80 animate-pulse"></div>
+        <div className="absolute -top-1 md:-top-2 -right-1 md:-right-2 w-3 md:w-4 h-3 md:h-4 bg-[#12FCD4] rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute -bottom-0.5 md:-bottom-1 -left-0.5 md:-left-1 w-2 h-2 bg-[#7A5CFA] rounded-full opacity-80 animate-pulse"></div>
       </div>
     </motion.div>
   );
