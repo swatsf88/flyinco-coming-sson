@@ -443,16 +443,16 @@ const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size
     lg: "h-16"
   }
   
-  return (
-   <div className={`flex items-center ${className}`}>
-  <img 
-    src="/flyinco-logo.png"  // <-- update with your actual logo file in the /public folder
-    alt="Flyinco Travel & Tourism" 
-    className={`${sizeClasses[size]} w-auto object-contain`}
-  />
-</div>
-    </div>
-  )
+ return (
+  <div className={`flex items-center ${className}`}>
+    {/* Logo image removed */}
+    <img
+      src="/flyinco.png" // <-- Update with your actual image path
+      alt="Flyinco Travel & Tourism"
+      className={`${sizeClasses[size]} w-auto object-contain`}
+    />
+  </div>
+);
 }
 
 // Header Component - Reduced padding
