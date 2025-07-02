@@ -435,31 +435,34 @@ const Concierge = ({ className }: { className?: string }) => (
   </svg>
 )
 
-// Logo Component - Updated to use new white logo
+// Logo Component - Fixed sizing and visibility issues
 const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size?: "sm" | "md" | "lg" }) => {
   const sizeClasses = {
-    sm: "h-8",
-    md: "h-10", 
-    lg: "h-16"
+    sm: "h-8 w-auto",
+    md: "h-12 w-auto", 
+    lg: "h-16 w-auto"
   }
   
- return (
-  <div className={`flex items-center ${className}`}>
-    {/* Logo image removed */}
-    <img
-      src="/flyinco.png" // <-- Update with your actual image path
-      alt="Flyinco Travel & Tourism"
-      className={`${sizeClasses[size]} w-auto object-contain`}
-    />
-  </div>
-);
+  return (
+    <div className={`flex items-center ${className}`}>
+      <img
+        src="/lovable-uploads/48f3b857-a0d8-4952-b622-100be72068cc.png"
+        alt="Flyinco Travel & Tourism"
+        className={`${sizeClasses[size]} object-contain filter brightness-0 invert`}
+        style={{ 
+          maxWidth: 'none',
+          imageRendering: 'crisp-edges'
+        }}
+      />
+    </div>
+  )
 }
 
-// Header Component - Reduced padding
+// Header Component - Fixed logo display
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-lg border-b border-white/10">
-      <div className="container mx-auto px-4 py-2">
+      <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <FlyincoLogo size="md" className="flex-shrink-0" />
           <nav className="hidden md:flex items-center gap-6">
@@ -1015,13 +1018,13 @@ const FlyincoLandingPage = () => {
         </div>
       </section>
 
-      {/* Footer - Reduced padding */}
+      {/* Footer - Fixed logo display */}
       <footer className="relative bg-slate-900 border-t border-white/10">
         <div className="max-w-6xl mx-auto px-4 py-8 lg:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Company Info */}
             <div className="space-y-4">
-              <FlyincoLogo size="lg" />
+              <FlyincoLogo size="lg" className="mb-4" />
               <p className="text-white/60 leading-relaxed text-sm lg:text-base">
                 Premium corporate travel & booking experience redefined. 
                 Serving businesses across KSA, Bahrain, UAE, and India.
