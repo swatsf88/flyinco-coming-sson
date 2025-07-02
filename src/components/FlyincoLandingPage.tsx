@@ -444,14 +444,13 @@ const FlyincoLogo = ({ className = "", size = "lg" }: { className?: string, size
   }
   
   return (
-    <div className={`flex items-center ${className}`}>
-  {/* Logo image removed */}
+   <div className={`flex items-center ${className}`}>
+  <img 
+    src="/flyinco-logo.png"  // <-- update with your actual logo file in the /public folder
+    alt="Flyinco Travel & Tourism" 
+    className={`${sizeClasses[size]} w-auto object-contain`}
+  />
 </div>
-      <img 
-        src="/<flyinco> </img>" 
-        alt="Flyinco Travel & Tourism" 
-        className={`${sizeClasses[size]} w-auto object-contain`}
-      />
     </div>
   )
 }
